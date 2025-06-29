@@ -13,10 +13,10 @@ from telegram.ext import (
 from utils import add_user, increment_files_shared, get_stats, load_data
 
 # --- Config ---
-BOT_TOKEN = "8138100267:AAFYAWWXb5Q2jQ-x6mnE2I3xhY_6ha11kvo"  # Replace with your actual token
+BOT_TOKEN = "8138100267:AAE6mg7NnJJOqBDPFwbfSUNNuHRazhqk0fM"
 BOT_NAME = "ShareToLinkBot"
 DEVELOPER_USERNAME = "lurhe"
-ADMIN_ID = 7775062794  # Replace with your Telegram ID
+ADMIN_ID = 123456789  # Replace with your Telegram ID
 TEMP_DIR = "temp_files"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
@@ -27,15 +27,8 @@ logger = logging.getLogger(__name__)
 # --- Start Command ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     add_user(update.effective_user.id)
-    welcome_text = (
-        "⍟ Hello {}!\n\n"
-        "Welcome to *{}*.\n\n"
-        "📂 Send me any file and I’ll generate a temporary download link using file.io."
-    ).format(update.effective_user.first_name, BOT_NAME)
-
-"
-        "📂 Send me any file and I’ll generate a temporary download link using file.io."
-    )
+    welcome_text = "⍟ Hello {}!\n\nWelcome to *{}*.\n\n📂 Send me any file and I’ll generate a temporary download link using file.io.".format(
+        update.effective_user.first_name, BOT_NAME)
     keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("📄 Help", callback_data='help')],
         [InlineKeyboardButton("ℹ️ About", callback_data='about')],
@@ -49,23 +42,16 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     if query.data == 'help':
         await query.edit_message_text(
-            "📄 *How to Use ShareToLinkBot:*
-
-"
-            "1. Send any file
-"
-            "2. I’ll upload it to file.io
-"
+            "📄 *How to Use ShareToLinkBot:*\n\n"
+            "1. Send any file\n"
+            "2. I’ll upload it to file.io\n"
             "3. You’ll get a private download link (auto-expiring)",
             parse_mode="Markdown"
         )
     elif query.data == 'about':
         await query.edit_message_text(
-            "ℹ️ *About ShareToLinkBot:*
-
-"
-            "This bot turns your uploaded files into shareable temporary links using file.io.
-"
+            "ℹ️ *About ShareToLinkBot:*\n\n"
+            "This bot turns your uploaded files into shareable temporary links using file.io.\n"
             "Built by [@lurhe](https://t.me/lurhe)",
             parse_mode="Markdown"
         )
