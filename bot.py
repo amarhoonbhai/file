@@ -13,10 +13,10 @@ from telegram.ext import (
 from utils import add_user, increment_files_shared, get_stats, load_data
 
 # --- Config ---
-BOT_TOKEN = "8138100267:AAE6mg7NnJJOqBDPFwbfSUNNuHRazhqk0fM"
+BOT_TOKEN = "8138100267:AAG4ohHDgREmNtn-nrz24pYBnEwYJOxV7-I"
 BOT_NAME = "ShareToLinkBot"
 DEVELOPER_USERNAME = "lurhe"
-ADMIN_ID = 123456789  # Replace with your Telegram ID
+ADMIN_ID = 7775062794  # Replace with your Telegram ID
 TEMP_DIR = "temp_files"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
@@ -109,7 +109,7 @@ def main():
     app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_handler(CommandHandler("broadcast", broadcast))
     app.add_handler(CommandHandler("status", status))
-    app.add_handler(MessageHandler(filters.Document.ALL | filters.Video.ALL | filters.PHOTO, handle_file))
+    app.add_handler(MessageHandler(filters.Document.ALL | filters.VIDEO | filters.PHOTO, handle_file))
     logger.info("Bot is running...")
     app.run_polling()
 
