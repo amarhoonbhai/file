@@ -13,10 +13,10 @@ from telegram.ext import (
 from utils import add_user, increment_files_shared, get_stats, load_data
 
 # --- Config ---
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+BOT_TOKEN = "8138100267:AAElyCZzoZHAFP_2lVG9ABQbQIf2__7Y1QE"
 BOT_NAME = "ShareToLinkBot"
 DEVELOPER_USERNAME = "lurhe"
-ADMIN_ID = 123456789  # Replace with your Telegram ID
+ADMIN_ID = 7775062794  # Replace with your Telegram ID
 TEMP_DIR = "temp_files"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
