@@ -13,7 +13,7 @@ from telegram.ext import (
 from utils import add_user, increment_files_shared, get_stats, load_data
 
 # --- Config ---
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # Replace with your actual token
+BOT_TOKEN = "8138100267:AAFYAWWXb5Q2jQ-x6mnE2I3xhY_6ha11kvo"  # Replace with your actual token
 BOT_NAME = "ShareToLinkBot"
 DEVELOPER_USERNAME = "lurhe"
 ADMIN_ID = 7775062794  # Replace with your Telegram ID
